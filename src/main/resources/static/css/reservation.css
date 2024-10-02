@@ -1,0 +1,385 @@
+/* 기본 스타일 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8f0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #ff6f61;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.auth-buttons a {
+    color: #ff6f61;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.auth-buttons a:hover {
+    text-decoration: underline;
+}
+
+.nav-bar {
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-bar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav-bar li {
+    margin: 0 15px;
+}
+
+.nav-bar a {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.nav-bar a:hover {
+    color: #e63946;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    margin-right: -1px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 6px 12px;
+    background-color: #ff6f61;
+    border: 1px solid #ff6f61;
+    border-radius: 0 4px 4px 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #e63946;
+}
+
+/* 영웅 배너 스타일 */
+.hero {
+    text-align: center;
+    padding: 10px 10px;
+    background-color: #ffd1b3;
+    color: #333;
+}
+
+.hero h1 {
+    font-size: 2.8em;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.cta-button:hover {
+    background-color: #e63946;
+}
+
+/* 메인 콘텐츠 스타일 */
+.main-content {
+    margin-top: 20px;
+}
+
+.tab-container {
+    margin-top: 20px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #ff6f61;
+}
+
+.tab-buttons button {
+    background: none;
+    border: none;
+    color: #ff6f61;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.tab-buttons button.active {
+    border-bottom: 2px solid #ff6f61;
+    color: #333;
+}
+
+.tab-content {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.empty-message {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+}
+
+.visit-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.visit-summary .count {
+    font-size: 1.2em;
+}
+
+.visit-summary .sort {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.sort .arrow {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.sort .arrow.up {
+    border-bottom: none;
+}
+
+.sort .arrow.down {
+    border-top: none;
+}
+
+.restaurant-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.restaurant-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 20px); /* 한 줄에 4개씩 */
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative; /* 이미지 위치를 위해 추가 */
+}
+
+.restaurant-item img {
+    width: 100%;
+    height: auto; /* 비율 유지 */
+    max-height: 180px; /* 이미지 최대 높이 설정 */
+    object-fit: cover; /* 자르기 없이 비율 유지 */
+}
+
+.restaurant-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.restaurant-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #ff6f61;
+}
+
+.restaurant-info p {
+    margin: 10px 0;
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    color: #333;
+}
+
+/* 모바일 화면을 위한 미디어 쿼리 */
+@media (max-width: 861px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .auth-buttons {
+        margin-top: 10px;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-bar li {
+        margin: 10px 0;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar input {
+        width: 100%;
+        margin-right: 0;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .search-bar button {
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .tab-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tab-buttons button {
+        font-size: 1em;
+    }
+
+    .restaurant-item {
+        width: calc(50% - 20px); /* 한 줄에 2개씩 */
+    }
+}
+
+/* 아주 작은 화면을 위한 미디어 쿼리 */
+@media (max-width: 480px) {
+    .header-content {
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .auth-buttons {
+        margin-top: 10px;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-bar li {
+        margin: 5px 0;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar input {
+        width: 100%;
+        margin-right: 0;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .search-bar button {
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    .hero h1 {
+        font-size: 1.5em;
+    }
+
+    .tab-buttons button {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .restaurant-item {
+        width: calc(100% - 20px); /* 한 줄에 1개씩 */
+    }
+}

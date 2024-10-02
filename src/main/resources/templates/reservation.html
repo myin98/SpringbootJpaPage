@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/reservation.css">
+    <script src="/js/reservation.js" defer></script>
+    <title>예약 관리</title>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">WarriorDining</a>
+                <div class="auth-buttons">
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-bar">
+        <div class="container">
+            <ul>
+                <li><a href="/">홈</a></li>
+                <li><a href="#">레스토랑 검색</a></li>
+                <li><a href="/reservation">예약 관리</a></li>
+                <li><a href="/help">문의</a></li>
+                <li class="search-bar">
+                    <input type="text" placeholder="지역 또는 레스토랑 검색">
+                    <button>검색</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+ 
+
+    <main class="container">
+        <section class="tab-container">
+            <div class="tab-buttons">
+                <button class="active" onclick="showTab('upcoming')">방문예정</button>
+                <button onclick="showTab('completed')">방문완료</button>
+                <button onclick="showTab('canceled')">취소/노쇼</button>
+            </div>
+
+            <div id="upcoming" class="tab-content">
+                <div class="empty-message">
+                     <li class="restaurant-item">
+                        <img src="./img/i0543680034.gif" alt="레스토랑 1">
+                        <div class="restaurant-info">
+                            <h3>대 재 학</h3>
+                            <p>태그: 수직, 다음주</p>
+                            <p>위치: 로스트아크</p>
+                            <p>2024년 8월 23일 (금) 17:00, 1명</p>
+                        </div>
+                    </li>
+                    <a href="#" class="cta-button">레스토랑 둘러보기</a>
+                </div>
+            </div>
+
+            <div id="completed" class="tab-content" style="display:none;">
+                <div class="visit-summary">
+                    <div class="count">총 방문 식당: 5곳</div>
+                    <div class="sort">
+                        방문일자
+                        <span class="arrow up">&#9650;</span>
+                        <span class="arrow down">&#9660;</span>
+                    </div>
+                </div>
+
+                <ul class="restaurant-list">
+                    <li class="restaurant-item">
+                        <img src="./img/i1720326077.png" alt="레스토랑 1">
+                        <div class="restaurant-info">
+                            <h3>할게없네</h3>
+                            <p>태그: 썩은물, 석유</p>
+                            <p>위치: 서울 강남구</p>
+                            <p>2024년 8월 30일 (금) 19:00, 4명</p>
+                            <button>리뷰 작성</button>
+                        </div>
+                    </li>
+                    <li class="restaurant-item">
+                        <img src="./img/i0621719725.gif" alt="레스토랑 2">
+                        <div class="restaurant-info">
+                            <h3>디붕오빠는 없어</h3>
+                            <p>태그: 씨익콩, 기상</p>
+                            <p>위치: 서울 홍익구</p>
+                            <p>2024년 8월 25일 (일) 20:00, 2명</p>
+                            <button>리뷰 작성</button>
+                        </div>
+                    </li>
+                    <li class="restaurant-item">
+                        <img src="./img/i013779593489.gif" alt="레스토랑 3">
+                        <div class="restaurant-info">
+                            <h3>한번 피해봐</h3>
+                            <p>태그: 리퍼, 개새캬, 스카우터 사망</p>
+                            <p>위치: 서울 중구</p>
+                            <p>2024년 8월 20일 (화) 18:30, 8명</p>
+                            <button>리뷰 작성</button>
+                        </div>
+                    </li>
+                    <li class="restaurant-item">
+                        <img src="./img/다운로드.png" alt="레스토랑 4">
+                        <div class="restaurant-info">
+                            <h3>돌려 돌려 돌림판</h3>
+                            <p>태그: 쁘띠카멘, 크아앙</p>
+                            <p>위치: 서울 송파구</p>
+                            <p>2024년 8월 15일 (목) 21:00, 2명</p>
+                            <button>리뷰 작성</button>
+                        </div>
+                    </li>
+                     <li class="restaurant-item">
+                        <img src="./img/Sequence 03.gif" alt="레스토랑 4">
+                        <div class="restaurant-info">
+                            <h3>혀깨물,전깨물</h3>
+                            <p>태그: 좋은 말 할때, 쳐 나와라</p>
+                            <p>위치: 인천 청라</p>
+                            <p>2024년 8월 15일 (목) 21:00, 4명</p>
+                            <button>리뷰 작성</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="canceled" class="tab-content" style="display:none;">
+                <!-- div class="empty-message">
+                    취소/노쇼 하신 예약이 없습니다.
+                </div> -->
+                 <li class="restaurant-item">
+                        <img src="./img/신창섭.gif" alt="레스토랑 4">
+                        <div class="restaurant-info">
+                            <h3>신 창 섭</h3>
+                            <p>태그: 정상화의 신, 다 해줬잖아</p>
+                            <p>위치: 넥슨 메</p>
+                            <p>2024년 8월 15일 (목) 21:00, 4명</p>
+                            <button>리뷰 작성</button>
+                        </div>
+                    </li>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MyDining. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>

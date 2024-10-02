@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의하기 | WarriorDining</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* 추가된 CSS 스타일 */
+        .contact-section {
+            padding: 50px 20px;
+            background-color: #fff8f0;
+            color: #333;
+            text-align: center;
+        }
+
+        .contact-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+
+        .contact-section p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left;
+            color: #ff6f61;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form button {
+            background-color: #ff6f61;
+            border: none;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">WarriorDining</a>
+                <div class="auth-buttons">
+                    <a href="#">로그인</a>
+                    <a href="#">회원 가입</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-bar">
+        <div class="container">
+            <ul>
+                <li><a href="/topreservation">예약 TOP</a></li>
+                <li><a href="/monthreservation">이달의 맛집</a></li>
+                <li><a href="/reservation">예약</a></li>
+                <li><a href="/help">문의</a></li>
+                <li class="search-bar">
+                    <input type="text" placeholder="지역 또는 레스토랑 검색">
+                    <button>검색</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="contact-section">
+        <h1>문의하기</h1>
+        <p>궁금한 점이나 불편한 사항이 있으시면 아래 폼을 통해 문의해 주세요. 최대한 빠르게 답변 드리겠습니다.</p>
+        
+        <form action="/submit-contact-form" method="post" class="contact-form">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">제목</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">메시지</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">보내기</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 WarriorDining. All rights reserved.</p>
+    </footer>
+</body>
+</html>

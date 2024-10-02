@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>레스토랑 이름 1 - WarriorDining</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #333;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-bar {
+            background-color: #f9f9f9;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-bar ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .nav-bar li {
+            margin: 0 15px;
+        }
+
+        .nav-bar a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+
+        .nav-bar a:hover {
+            color: #007aff;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin: 20px 0;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .restaurant-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .restaurant-details img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .restaurant-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .restaurant-info h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .restaurant-info p {
+            font-size: 1.125em;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.125em;
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            background-color: #444;
+        }
+
+        .menu-section, .reviews-section {
+            margin: 20px 0;
+        }
+
+        .menu-item, .review-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .menu-item h3, .review-card .reviewer-name {
+            margin: 0;
+            font-size: 1.25em;
+        }
+
+        .menu-item p, .review-card .review-text {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .review-card img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .review-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .more-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .more-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.875em;
+        }
+
+        /* 모달 블러 및 팝업 스타일 */
+        .modal {
+            display: none; /* 기본적으로 숨김 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* 블러 효과 */
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px; /* 모달 최대 폭 설정 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .modal-close {
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            float: right;
+            font-size: 1em;
+        }
+
+        .modal-close:hover {
+            background: #444;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .form-group input {
+            padding: 5px;
+        }
+        .form-group select {
+            padding: 10px;
+        }
+
+        .form-group textarea {
+            padding: 5px;
+            resize: vertical;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.125em;
+        }
+
+        .form-group button:hover {
+            background-color: #444;
+        }
+        .date-time-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .date-time-group .half {
+            flex: 1;
+            margin-right: 10px; /* 날짜와 시간 사이의 간격 조정 */
+        }
+
+        .date-time-group .half:last-child {
+            margin-right: 0;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .form-group input {
+            padding: 5px;
+        }
+
+        .form-group select {
+            padding: 10px;
+        }
+        .date-time-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* 날짜와 시간 사이의 간격 조정 */
+        }
+
+        .date-time-group .half {
+            flex: 1;
+        }
+
+        .date-time-group .half input,
+        .date-time-group .half select {
+            width: 100%;
+            padding: 8px; /* 여유를 줘서 높이를 맞추기 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .date-time-group .half input {
+            box-sizing: border-box; /* 패딩과 보더를 너비에 포함 */
+        }
+
+        .date-time-group .half select {
+            box-sizing: border-box; /* 패딩과 보더를 너비에 포함 */
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <a href="#" class="logo">WarriorDining</a>
+        </div>
+    </div>
+</header>
+
+<div class="nav-bar">
+    <div class="container">
+        <ul>
+            <li><a href="/topreservation">예약 TOP</a></li>
+            <li><a href="#">이달의 맛집</a></li>
+            <li><a href="/reservation">예약</a></li>
+            <li><a href="#">문의</a></li>
+        </ul>
+    </div>
+</div>
+
+<main class="container">
+    <section class="restaurant-details">
+        <img src="https://via.placeholder.com/1200x800" alt="레스토랑 이미지">
+        <div class="restaurant-info">
+            <h1>레스토랑 이름 1</h1>
+            <p>이곳은 맛있는 음식을 제공하는 최고의 레스토랑입니다. 정통 요리와 현대적인 분위기가 어우러지는 장소입니다.</p>
+            <a href="#reservation" class="cta-button" id="open-modal">예약하기</a>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2 class="section-title">메뉴</h2>
+        <div class="menu-item">
+            <h3>메뉴 아이템 1</h3>
+            <p>이 메뉴 아이템은 최고의 재료로 준비된 요리입니다. 맛과 품질이 뛰어납니다.</p>
+        </div>
+        <div class="menu-item">
+            <h3>메뉴 아이템 2</h3>
+            <p>다양한 맛을 느낄 수 있는 메뉴로, 고객의 입맛을 만족시킬 수 있습니다.</p>
+        </div>
+        <div class="menu-item">
+            <h3>메뉴 아이템 3</h3>
+            <p>세심하게 조리된 요리로, 고급스러운 맛을 제공합니다.</p>
+        </div>
+        <!-- 더보기 버튼 -->
+        <a href="#" class="more-link">메뉴 더보기</a>
+    </section>
+
+    <section class="reviews-section">
+        <h2 class="section-title">리뷰</h2>
+        <div class="review-card">
+            <div class="review-content">
+                <img src="https://via.placeholder.com/60" alt="리뷰어 사진">
+                <div>
+                    <p class="reviewer-name">홍길동</p>
+                    <p class="review-text">정말 훌륭한 경험이었습니다. 음식이 맛있고 서비스가 친절했습니다. 다음에 또 오고 싶어요.</p>
+                </div>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-content">
+                <img src="https://via.placeholder.com/60" alt="리뷰어 사진">
+                <div>
+                    <p class="reviewer-name">김철수</p>
+                    <p class="review-text">분위기가 정말 좋았고, 음식이 신선하고 맛있었습니다. 추천합니다.</p>
+                </div>
+            </div>
+        </div>
+        <div class="review-card">
+            <div class="review-content">
+                <img src="https://via.placeholder.com/60" alt="리뷰어 사진">
+                <div>
+                    <p class="reviewer-name">이영희</p>
+                    <p class="review-text">따뜻한 분위기, 친절한 서비스가 인상 깊었습니다. 다시 가고 싶습니다.</p>
+                </div>
+            </div>
+        </div>
+        <!-- 더보기 버튼 -->
+        <a href="#" class="more-link">리뷰 더보기</a>
+    </section>
+</main>
+
+<!-- 모달 창 -->
+<div id="reservation-modal" class="modal">
+    <div class="modal-content">
+        <button class="modal-close" id="close-modal">&times;</button>
+        <h1>레스토랑 예약</h1>
+        <form action="#" method="post">
+            <div class="form-group date-time-group">
+                <div class="form-group half">
+                    <label for="date">예약 날짜</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group half">
+                    <label for="time">예약 시간</label>
+                    <select id="time" name="time" required>
+                        <!-- 30분 단위로 시간 옵션 추가 -->
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:30">20:30</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="guests">인원 수</label>
+                <select id="guests" name="guests" class="custom-guests-select" required>
+                    <option value="1">1명</option>
+                    <option value="2">2명</option>
+                    <option value="3">3명</option>
+                    <option value="4">4명</option>
+                    <option value="5">5명</option>
+                    <option value="6">6명</option>
+                    <option value="7">7명</option>
+                    <option value="8">8명</option>
+                    <option value="9">9명</option>
+                    <option value="10">10명</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="special-requests">특별 요청 사항</label>
+                <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" style="float: right">예약 확인</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 WarriorDining. All rights reserved.</p>
+</footer>
+
+<script>
+    // 모달 열기 및 닫기
+    const openModalButton = document.getElementById('open-modal');
+    const closeModalButton = document.getElementById('close-modal');
+    const modal = document.getElementById('reservation-modal');
+
+    openModalButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.style.display = 'flex'; // 모달 열기
+    });
+
+    closeModalButton.addEventListener('click', function() {
+        modal.style.display = 'none'; // 모달 닫기
+    });
+
+    // 모달 바깥 클릭 시 모달 닫기
+    window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

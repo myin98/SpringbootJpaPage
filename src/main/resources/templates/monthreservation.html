@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이달의 맛집</title>
+	<link rel="stylesheet" href="./css/default.css">
+    <style>
+        /* 추가된 CSS 스타일 */
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff6f61;
+            padding-bottom: 10px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .section-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .restaurant-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px;
+            cursor: pointer;
+        }
+        
+        .restaurant-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .restaurant-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .restaurant-info {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .restaurant-info h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+        
+        .restaurant-info p {
+            margin: 10px 0;
+            color: #777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">WarriorDining</a>
+                <div class="auth-buttons">
+                    <a href="#">로그인</a>
+                    <a href="#">회원 가입</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-bar">
+        <div class="container">
+            <ul>
+                <li><a href="/topreservation">예약 TOP</a></li>
+                <li><a href="/monthreservation">이달의 맛집</a></li>
+                <li><a href="/reservation">예약</a></li>
+                <li><a href="#">문의</a></li>
+                <li class="search-bar">
+                    <input type="text" placeholder="지역 또는 레스토랑 검색">
+                    <button>검색</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>이달의 맛집</h1>
+        <p>매달 새롭게 추천하는 맛집을 확인해보세요!</p>
+    </section>
+
+    <main class="container">
+        <section>
+            <h2 class="section-title">이번 달 추천 맛집</h2>
+            <div class="section-container">
+                <div class="restaurant-card">
+                    <img src="../img/restaurant1.jpg" alt="맛집 이미지 1">
+                    <div class="restaurant-info">
+                        <h3>맛집 1</h3>
+                        <p>서울시 강남구</p>
+                        <p>추천 메뉴: 불고기</p>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <img src="../img/restaurant2.jpg" alt="맛집 이미지 2">
+                    <div class="restaurant-info">
+                        <h3>맛집 2</h3>
+                        <p>서울시 홍익구</p>
+                        <p>추천 메뉴: 김치찌개</p>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <img src="../img/restaurant3.jpg" alt="맛집 이미지 3">
+                    <div class="restaurant-info">
+                        <h3>맛집 3</h3>
+                        <p>서울시 중구</p>
+                        <p>추천 메뉴: 비빔밥</p>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <img src="../img/restaurant4.jpg" alt="맛집 이미지 4">
+                    <div class="restaurant-info">
+                        <h3>맛집 4</h3>
+                        <p>서울시 송파구</p>
+                        <p>추천 메뉴: 삼겹살</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 WarriorDining. All rights reserved.</p>
+    </footer>
+</body>
+</html>
